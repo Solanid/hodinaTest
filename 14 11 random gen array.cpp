@@ -3,13 +3,13 @@
 #include <time.h>
 #include <ctype.h>
 
-int* generator(int );
+int* Generator(int );
 
 main(){
 	int num, i;
 	printf("How many numbers do u want ?\n");
 	scanf("%d", &num);
-	int *p=generator(num);
+	int *p=Generator(num);
 	int *temp = p;
 	for(i=0; i<num; i++){
 		printf("%d ", *p++ );
@@ -17,7 +17,7 @@ main(){
 	free(temp);
 }
 
-int* generator(int n){
+int* Generator(int n){
 	int i, j;
 	int *array = (int *)malloc(n*sizeof(int));
 	srand(time(NULL));
@@ -26,7 +26,7 @@ int* generator(int n){
 		*(array+i)=rand()%11;
 		for(j=0; j<i; j++){
 			while( *(array+i) == *(array+j) ){
-				*(array+i)=rand()%11;
+				*(array+i)=rand()%99+1;
 			}
 		}
 	}
